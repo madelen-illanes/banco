@@ -1,3 +1,4 @@
+
 .register-auth-page {
     position: absolute;
     width: 100vw;
@@ -9,29 +10,30 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
+     
 }
 
 .register-auth-page .register-auth-wrapper {
-    width: 25%;
+    width: 35%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border: solid 1px var(--color-4);
+   
 }
-
 
 .register-auth-page .social-btn {
     border: 0;
-    padding: .5rem 2rem;
-    width: 100%;
-    font-size: var(--font-size-2);
+    padding: .6rem 2rem;
+    width: 40%;
+    font-size: var(--font-size-1);
     border-radius: var(--border-radius-2);
     box-shadow: var(--shadow-1);
     border: solid 1px var(--color-4);
-    background-color: var(--color-4);
-    font-weight: 600;
+    background-color: var(--color-2);
+    font-weight: 400;
 }
-
 
 .register-auth-page .separator {
     width: 100%;
@@ -77,6 +79,7 @@
     font-size: 85%;
     font-weight: 500;
     text-decoration: underline;
+    color: var(--color-5)
 }
 
 .register-auth-page .register-auth-form .form-steps .link:hover {
@@ -91,4 +94,8 @@
 
 input.ng-invalid.ng-touched {
     border: solid 2px red !important
+}
+
+input.ng-valid.ng-touched {
+    border: solid 2px var(--color-5)!important
 }

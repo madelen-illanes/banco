@@ -25,14 +25,14 @@ describe('LoginPageComponent', () => {
 // Arrange
 
 const mockCredentials = {
-  email: 'acbd123',
+  userName: '',
   password: '1234',
 }
-const emailForm : any= component.formLogin.get('email')
+const emailForm : any= component.formLogin.get('userName')
 const passwordForm: any = component.formLogin.get('password')
 //Act
 
-emailForm.setValue(mockCredentials.email)
+emailForm.setValue(mockCredentials.userName)
 passwordForm.setValue(mockCredentials.password)
 
 //Assert

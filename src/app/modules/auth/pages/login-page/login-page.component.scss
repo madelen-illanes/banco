@@ -1,3 +1,7 @@
+ #title{
+    font-size: 2em;
+    align-items: center;
+ }
 .login-auth-page {
     position: absolute;
     width: 100vw;
@@ -21,7 +25,6 @@
     border: solid 1px var(--color-4);
    
 }
-
 
 .login-auth-page .social-btn {
     border: 0;
@@ -97,5 +100,5 @@ input.ng-invalid.ng-touched {
 }
 
 input.ng-valid.ng-touched {
-    border: solid 2px rgb(207, 219, 40) !important
+    border: solid 2px var(--color-5)!important
 }

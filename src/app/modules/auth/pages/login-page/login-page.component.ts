@@ -16,9 +16,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formLogin = new FormGroup ({
-    email: new FormControl  ('',[
+    userName: new FormControl  ('',[
       Validators.required,
-      Validators.email,
     ]
     ),
     password: new FormControl ('',[
@@ -31,14 +30,16 @@ export class LoginPageComponent implements OnInit {
   }
  
   sendLogin(): void {
-    const {email,password} = this.formLogin.value
-  this.authService.sendCredentials(email, password)
-  .subscribe(responseOk => {
+    const {userName,password} = this.formLogin.value
+  this.authService.sendCredentials(userName, password)
+  .subscribe({
+    next: res => {
     console.log('Sesión iniciada de manera correcta')
   },
-  err => {
+  error:error => {
   this.errorLogin = true
   console.log('Error al ingresar usuario o contraseña')
-  })
+  }
+})
   } 
 }

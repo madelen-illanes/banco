@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true.valueOf,
+  api: 'https://cangular-api.herokuapp.com'
 };
