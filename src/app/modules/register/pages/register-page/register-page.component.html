@@ -1,13 +1,13 @@
 
 <section>
     <div class="register-auth-page">
-        <div class="register-auth-wrapper">
-        <h3>Registrarse</h3>
-
-        <div class="separator"></div>
+      
+    
 
         <form [formGroup]="formRegister" (submit)="onSubmit(formRegister.value)" class="register-auth-form">
-
+  <div class="containerInputs">
+            <h1>Registrarse</h1><hr>
+<div class="containerOnlyInputs">
          <div class="form-group">
             <label for="userName"> Nombre de usuario </label>
             <input type="text" formControlName="username" class="form-input" placeholder="Ej. makoto">
@@ -46,28 +46,26 @@
                 <h1>Categorias</h1>
 
                 <div *ngFor="let control of categoriesArray.controls; let i = index;" >
-                    <label for="inlineCheckbox{{i}}">{{categories[i]}}</label>
+        
                     <input [formControl]="$any(control)" (change)="getSelectedCategories()" type="checkbox"
                         id="inlineCheckbox{{i}}" value="">
+                        <label for="inlineCheckbox{{i}}">{{categories[i]}}</label>
                 </div>
 
                 <small class="alertDanger" *ngIf="categororyErrors && checkCategoriesControlTouched()">
                     Debe seleccionar 3 categorías como mínimo</small>
             </div>
-
+        </div>
+    </div>
             <div class="containerBtns">
                 <a class="link" routerLink="/auth/login">Iniciar sesión</a>
               
                 <input type="submit" value="Registrar" class="register social-btn">
-
-            </div>
-            <div class="loading" *ngIf="formRegister.pending">
-              
+                <div class="loading" *ngIf="formRegister.pending"> </div>
+            
             </div>
 
         </form>
     </div>
-</div>
-
 </section>
 

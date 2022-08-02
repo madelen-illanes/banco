@@ -1,7 +1,3 @@
- #title{
-    font-size: 2em;
-    align-items: center;
- }
 .login-auth-page {
     position: absolute;
     width: 100vw;
@@ -13,41 +9,24 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-     
 }
 
-.login-auth-page .login-auth-wrapper {
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border: solid 1px var(--color-4);
-   
-}
-
-.login-auth-page .social-btn {
+.social-btn {
     border: 0;
     padding: .6rem 2rem;
-    width: 40%;
-    font-size: var(--font-size-1);
+    width: auto;
+    height: 50px;
+    font-size: var(--font-size-2);
     border-radius: var(--border-radius-2);
-    box-shadow: var(--shadow-1);
     border: solid 1px var(--color-4);
-    background-color: var(--color-2);
+    background-color: yellow;
     font-weight: 400;
-}
-
-.login-auth-page .separator {
-    width: 100%;
-    margin: 2rem 0;
-    border-bottom: solid 1px var(--color-2);
-    opacity: .2;
 }
 
 .login-auth-page .login-auth-form {
     display: flex;
-    width: 100%;
+    width: 50%;
+    height: auto;
     justify-content: flex-start;
     flex-direction: column;
 }
@@ -75,11 +54,12 @@
 
 .login-auth-page .login-auth-form .form-steps {
     padding: .5rem 0;
+    
 }
 
 .login-auth-page .login-auth-form .form-steps .link {
     color: var(--color-2);
-    font-size: 85%;
+    font-size: var(--font-size-2);
     font-weight: 500;
     text-decoration: underline;
     color: var(--color-5)
@@ -89,11 +69,7 @@
     color: var(--color-1);
 }
 
-.login-auth-page .login-auth-form .form-action .login {
-    color: var(--color-4);
-    margin: 1rem 0;
-    background-color: var(--color-1);
-}
+
 
 input.ng-invalid.ng-touched {
     border: solid 2px red !important
@@ -101,4 +77,27 @@ input.ng-invalid.ng-touched {
 
 input.ng-valid.ng-touched {
     border: solid 2px var(--color-5)!important
+}
+
+.containerInputs,.containerButtons{
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(122, 120, 120) ;
+    padding: 25px;
+    border-radius: 10px 10px 0px 0px;
+}
+.containerButtons{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.containerOnlyInputs{
+    padding-top: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
 }

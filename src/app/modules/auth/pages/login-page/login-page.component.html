@@ -1,9 +1,9 @@
 <div class="login-auth-page">
-    <div class="login-auth-wrapper">
-        <h3 id="title">Iniciar sesión</h3>
        
-        <div class="separator"></div>
         <form (ngSubmit)= "sendLogin(formLogin.value)" [formGroup]="formLogin" class="login-auth-form">
+          <div class="containerInputs">
+            <h1 id="title">Iniciar sesión</h1><hr>
+            <div class="containerOnlyInputs">
             <div class="form-group">
                 <label for="userName">Usuario</label>
                 <input formControlName = "userName" type="text" placeholder="Ej.makoto" class="form-input">
@@ -29,13 +29,17 @@
                 class="alertDanger">
                     La contraseña debe contener más de 8 caracteres</small>
             </div>
+        </div>
+    </div>
+        <div class="containerButtons">
             <div class="form-steps">
                 <a class="link" routerLink="/register" href="">Registrate aquí</a>
             </div>
            
             <div class="form-action">
-                <button [disabled] ="formLogin.invalid" class="login social-btn">Iniciar sesión</button>
+                <button class="login social-btn">Iniciar sesión</button>
             </div>
+        </div>
             <p *ngIf="messageError" id="alertmessage" class="alertDanger"> Error de logueo {{ messageError }} </p>
         </form>
     </div>
@@ -43,4 +47,3 @@
         <!-- // <hr> Raw: {{formLogin.value | json}} -->
     </div>
     
-</div>
