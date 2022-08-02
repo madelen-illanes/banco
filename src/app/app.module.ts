@@ -6,11 +6,14 @@ import {AppComponent} from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+// import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-
+  
+    // HomePageComponent,
+   
   ],
   imports: [
     BrowserModule,
