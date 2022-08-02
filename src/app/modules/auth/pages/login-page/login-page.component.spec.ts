@@ -40,15 +40,20 @@ passwordForm.setValue(mockCredentials.password)
     expect(component.formLogin.invalid).toEqual(true);
   });
 
+
+
+  
+ //TODO: Debe asegurarse que el boton tiene la palabra "iniciar sesión", experiencia de usuario 
+ it('should have the correct description', () => {
+    
+  const elementRef = fixture.debugElement.query(By.css('.form-action button'))
+  const getInnerText = elementRef.nativeElement.innerText
+  
+      expect(getInnerText).toEqual('Iniciar sesión');
+    });
+
 });
   
-   // TODO: Debe asegurarse que el boton tiene la palabra "iniciar sesión", experiencia de usuario 
-//    it('should have the correct description', () => {
-    
-//     const elementRef = fixture.debugElement.query(By.css('.form-action button'))
-//     const getInnerText = elementRef.nativeElement.innerText
-    
-//         expect(getInnerText).toEqual('Iniciar sesión');
-//       });
-// });
+  
+
 

@@ -3,14 +3,31 @@
         <h3 id="title">Iniciar sesión</h3>
        
         <div class="separator"></div>
-        <form (ngSubmit)= "sendLogin()" [formGroup]="formLogin" class="login-auth-form">
+        <form (ngSubmit)= "sendLogin(formLogin.value)" [formGroup]="formLogin" class="login-auth-form">
             <div class="form-group">
                 <label for="userName">Usuario</label>
                 <input formControlName = "userName" type="text" placeholder="Ej.makoto" class="form-input">
             </div>
+            <div *ngIf=" userName.touched && userName.errors">
+                <small *ngIf="userName.hasError('required')" 
+                class="alertDanger">
+                    Usuario es requerido
+                </small>
+            </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input formControlName = "password" type="password" placeholder=" **** " class="form-input">
+            </div>
+            <div *ngIf=" password.touched && password.errors">
+                <small *ngIf="password.hasError('required')" 
+                class="alertDanger">
+                    Contraseña es requerida</small>
+                <small *ngIf="password.hasError('password')" 
+                class="alertDanger">
+                    Ingrese una contraseña válida</small>
+                 <small *ngIf="password.hasError('minlength')  " 
+                class="alertDanger">
+                    La contraseña debe contener más de 8 caracteres</small>
             </div>
             <div class="form-steps">
                 <a class="link" routerLink="/register" href="">Registrate aquí</a>
@@ -19,11 +36,11 @@
             <div class="form-action">
                 <button [disabled] ="formLogin.invalid" class="login social-btn">Iniciar sesión</button>
             </div>
-            <div *ngIf="errorLogin">Error al ingresar usuario o contraseña</div>
+            <p *ngIf="messageError" id="alertmessage" class="alertDanger"> Error de logueo {{ messageError }} </p>
         </form>
     </div>
     <div>
-        <hr> Raw: {{formLogin.value | json}}
+        <!-- // <hr> Raw: {{formLogin.value | json}} -->
     </div>
     
 </div>

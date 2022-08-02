@@ -1,4 +1,5 @@
-export interface CategoryModel{
+export interface Category{
     id: number,
     description: string
 }
+
