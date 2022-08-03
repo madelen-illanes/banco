@@ -1,69 +1,71 @@
-
 <section>
-    <div class="register-auth-page">
+    <div class="addbook-auth-page">
       
-        <form [formGroup]="formRegister" (submit)="onSubmit(formRegister.value)" class="register-auth-form">
+        <form   class="addbook-auth-form">
   <div class="containerInputs">
             <h1>Registrarse</h1><hr>
 <div class="containerOnlyInputs">
          <div class="form-group">
-            <label for="userName"> Nombre de usuario </label>
-            <input type="text" formControlName="username" class="form-input" placeholder="Ej. makoto">
+            <label for="userName"> Nombre del Libro </label>
+            <input type="text" formControlName="username" class="form-input" placeholder="Ej. Angular + NGRX">
             </div>
-        <div *ngIf="username.touched && username.errors">
+        <!-- <div *ngIf="username.touched && username.errors">
                 <small class="alertDanger" *ngIf="username.hasError('required')">Nombre de usuario requerido</small>
                 <small class="alertDanger" *ngIf="username.hasError('exist')">El nombre de usuario ya existe</small>
-            </div>
+            </div> -->
         <div class="form-group">  
-            <label for="email"> Correo electrónico </label>
-            <input type="email" formControlName="email" class="form-input" placeholder="Ej. name@example.com">
+            <label for="email"> URL del Libro</label>
+            <input type="email" formControlName="email" class="form-input" placeholder="Ej. https://books-all.com/sabhjxm2k">
         </div>
-            <div *ngIf="email.touched && email.errors">
+            <!-- <div *ngIf="email.touched && email.errors">
                 <small class="alertDanger" *ngIf="email.hasError('required')">Correo electrónico requerido</small>
                 <small class="alertDanger" *ngIf="email.hasError('email')">Ingrese un correo electrónico válido</small>
-            </div>
+            </div> -->
         <div class="form-group">   
-            <label for="password"> Contraseña </label>
-            <input type="password" formControlName="password" class="form-input" placeholder="****">
+            <label for="password"> Resumen del Libro </label>
+            <input type="password" formControlName="password" class="form-input" placeholder="Ej.....">
         </div> 
-            <div *ngIf="password.touched && password.errors">
+            <!-- <div *ngIf="password.touched && password.errors">
                 <small class="alertDanger" *ngIf="password.hasError('required')">Contraseña requerida</small>
                 <small class="alertDanger" *ngIf="password.hasError('pattern')">La contraseña debe tener mínimo una letra mayúscula, un número y un caracter especial</small><br>
                 <small class="alertDanger" *ngIf="password.hasError('minlength')">La contraseña debe tener 8 caracteres como mínimo</small>
-            </div>
+            </div> -->
         <div class="form-group">
-            <label for="confirmPassword"> Confirmar contraseña </label>
-            <input type="password" formControlName="confirmPassword" class="form-input" placeholder="****">
+            <label for="confirmPassword"> Nombre del Autor </label>
+            <input type="password" formControlName="confirmPassword" class="form-input" placeholder="Ej. Kevin Suarez">
         </div> 
-            <div *ngIf="confirmPassword.touched && confirmPassword.errors">
+            <!-- <div *ngIf="confirmPassword.touched && confirmPassword.errors">
                 <small class="alertDanger" *ngIf="confirmPassword.hasError('required')">Contraseña requerida</small>
                 <small class="alertDanger" *ngIf="confirmPassword.hasError('minlength')">La contraseña debe tener 8 caracteres como mínimo</small>
                 <small class="alertDanger" *ngIf="">La contraseña no coincide</small>
-            </div>
+            </div> -->
+            <div class="form-group">
+                <label for="confirmPassword"> Imagen de Portada </label>
+                <input type="password" formControlName="confirmPassword" class="form-input" placeholder="Ej. https://books-all.com/safj/img">
+            </div> 
         <div class="containerCategories">
                 <h1>Categorias</h1>
 
-                <div *ngFor="let control of categoriesArray.controls; let i = index;" >
+                <!-- <div *ngFor="let control of categoriesArray.controls; let i = index;" >
         
                     <input [formControl]="$any(control)" (change)="getSelectedCategories()" type="checkbox"
                         id="inlineCheckbox{{i}}" value="">
                         <label for="inlineCheckbox{{i}}">{{categories[i]}}</label>
-                </div>
+                </div> -->
 
-                <small class="alertDanger" *ngIf="categororyErrors && checkCategoriesControlTouched()">
-                    Debe seleccionar 3 categorías como mínimo</small>
+                <!-- <small class="alertDanger" *ngIf="categororyErrors && checkCategoriesControlTouched()">
+                    Debe seleccionar 3 categorías como mínimo</small> -->
             </div>
         </div>
     </div>
             <div class="containerBtns">
-                <a class="link" routerLink="/auth/login">Iniciar sesión</a>
               
-                <input type="submit" value="Registrar" class="register social-btn">
-                <div class="loading" *ngIf="formRegister.pending"> </div>
+                <input type="submit" value="Cancelar" class="addbook social-btn">
+                <input type="submit" value="Registrar" class="addbook social-btn">
+                <!-- <div class="loading" *ngIf="formaddbook.pending"> </div> -->
             
             </div>
 
         </form>
     </div>
 </section>
-

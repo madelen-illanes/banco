@@ -29,16 +29,19 @@ it('should return invalid Form', () => {
     password: '1234',
 
   }
-  const emailForm : any= component.formRegister.get('userName')
-  const passwordForm: any = component.formRegister.get('password')
+  // const emailForm : any= component.formRegister.get('userName')
+  // const passwordForm: any = component.formRegister.get('password')
   //Act
-  
-  emailForm.setValue(mockCredentials.userName)
-  passwordForm.setValue(mockCredentials.password)
+  component.formRegister.patchValue ( 
+    {
+    userName: mockCredentials.userName,
+    password: mockCredentials.password
+    }
+  ) 
   
   //Assert
   
-      expect(component.formRegister.invalid).toEqual(true);
+      expect(component.formRegister.invalid).toBeTruthy();
     });
   
   

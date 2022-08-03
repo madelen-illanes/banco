@@ -3,7 +3,7 @@ import { AbstractControl, AsyncValidatorFn, FormArray, FormBuilder, FormControl,
 import { map, tap } from 'rxjs';
 import { RegisterModel } from '../../../../core/models/register.model';
 import { ValidationService } from '../../../../services/validation.service';
-import { LibraryService } from '../../../../services/library.service';
+import { LibraryService } from '../../../../services/library.service/library.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
