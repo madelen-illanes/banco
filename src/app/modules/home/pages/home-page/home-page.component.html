@@ -1,26 +1,25 @@
 
+<app-header-user></app-header-user>
 <div class="row">
-<div class="inputUp">
- <h3>Biblioteca</h3>
- <h3> {{username}} </h3>
-</div>
+
   <div class="inputUp">
     <h1>Tus Libros</h1>
     <button routerLink="/addbook" id="register">Agregar Libro</button>
 </div>
 <div class="">
-  <input (ikeyup)="onSearch($any($event))" class="input" placeholder="Ej: React, Angular" id-element="search" >
+  <input  class="input" placeholder="Ej: React, Angular" id-element="search" >
   <select class="input">
   <option>...Seleccione</option>
   </select> 
 
- <select class="end"  placeholder="Selecciona una categoría"> 
-    <option *ngFor="let categorie of categories">{{categorie.label}} </option>   
+  <select class="end">
+  <option selected> Seleccione...</option>
+  <option [innerHTML]="categorie.label" *ngFor="let categorie of categories"></option>
 </select>
 </div>
     <div class="book-section">
-        <ul *ngFor="let book of books" >
-            <li><img style="width: 100px;height: 100px" src={{book.image}}></li>
+      <ul *ngFor="let book of books" >
+      <li><img appImgBroken style="width: 100px;height: 100px" src={{book.image}}></li> 
         </ul>
    </div> 
 

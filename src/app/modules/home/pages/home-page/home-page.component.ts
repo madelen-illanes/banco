@@ -58,43 +58,5 @@ export class HomePageComponent implements OnInit {
     this.books = this.booksService.userBooks;
   }
 
-  // onAddBook() {
-  //   this.router.navigateByUrl(``);
-  // }
-
-  //  onSelectBook(id: string){
-  //   this.router.navigateByUrl(``);
-  //  }
  
-  onSearch(event: CustomEvent) {
-    this.searchTerm = event.detail.target.value;
-    if (event.detail.target.value.length > 0) {
-      const filter: Filter = {
-        title: event.detail.target.value,
-        ...(this.selectedCategory && { category: [this.selectedCategory] })
-      }
-      this.filterSubscription?.unsubscribe();
-      this.filterSubscription = this.booksService.filterBooks(filter).subscribe(res => {
-        this.books = res.items;
-      });
-    } else {
-      this.getBooks();
-    }
-  }
-
-  selectedItem(event: CustomEvent) {
-    this.selectedCategory = event.detail.value;
-    if (this.selectedCategory) {
-      const filter: Filter = {
-        ...(this.searchTerm.length > 0 && { title: this.searchTerm }),
-        category: [this.selectedCategory!]
-      };
-      this.filterSubscription?.unsubscribe();
-      this.filterSubscription = this.booksService.filterBooks(filter).subscribe(res => {
-        this.books = res.items;
-      });
-    } else {
-      this.getBooks();
-    }
-  }
 }
