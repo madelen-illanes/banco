@@ -1,11 +1,12 @@
 <app-header-user></app-header-user>
 <div class="row">
 
-  <div class="inputUp">
+  <div class="container">
+<div class= "inputUp">
     <h1>Tus Libros</h1>
     <button routerLink="/books/add" id="register">Agregar Libro</button>
   </div>
-  <div class="">
+  <div class="inputUp inputOption" >
     <input class="input" placeholder="Ej: React, Angular" id-element="search">
 
 
@@ -16,15 +17,16 @@
               *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"
       ></option>
     </select>
-  </div>
+  </div> 
+
   <div class="book-section">
     <ul *ngFor="let book of books">
       <li>
-        <img appImgBroken
+        <img routerLink= "/books/display" appImgBroken
              [src]="book.image">
       </li>
     </ul>
   </div>
-
+</div>
 </div>
 

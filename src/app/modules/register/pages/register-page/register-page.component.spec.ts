@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+
 
 import { RegisterPageComponent } from './register-page.component';
 
@@ -29,8 +29,6 @@ it('should return invalid Form', () => {
     password: '1234',
 
   }
-  // const emailForm : any= component.formRegister.get('userName')
-  // const passwordForm: any = component.formRegister.get('password')
   //Act
   component.formRegister.patchValue ( 
     {

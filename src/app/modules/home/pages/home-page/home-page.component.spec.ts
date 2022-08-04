@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
 import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
@@ -19,7 +19,9 @@ describe('HomePageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should have the correct description', () => {
+    const elementRef = fixture.debugElement.query(By.css('#register'))
+    const getInnerText = elementRef.nativeElement.innerText
     expect(component).toBeTruthy();
   });
 });

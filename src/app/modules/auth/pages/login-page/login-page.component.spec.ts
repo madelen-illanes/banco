@@ -27,17 +27,18 @@ describe('LoginPageComponent', () => {
 const mockCredentials = {
   userName: '',
   password: '1234',
-}
-const emailForm : any= component.formLogin.get('userName')
-const passwordForm: any = component.formLogin.get('password')
-//Act
 
-emailForm.setValue(mockCredentials.userName)
-passwordForm.setValue(mockCredentials.password)
+}
+//Act
+component.formLogin.patchValue ( 
+  {
+  userName: mockCredentials.userName,
+  password: mockCredentials.password
+  }
+) 
 
 //Assert
-
-    expect(component.formLogin.invalid).toEqual(true);
+    expect(component.formLogin.invalid).toBeTruthy();
   });
 
 

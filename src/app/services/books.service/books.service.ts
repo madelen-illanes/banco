@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Books , BooksResponse} from '../../core/books.interface';
 import { Filter } from '../../core/filter.interface';
-import { Category } from '../../core/category.interface'
-import {InterceptorService} from '../../interceptors/interceptor.service'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +25,7 @@ export class BooksService implements HttpInterceptor{
   private readonly URL = environment.api
   userBooks: Books[] = [];
   publicBooks: Books[] = [];
-  categories: Category[] = [];
+  
 
 
 
@@ -40,7 +39,7 @@ export class BooksService implements HttpInterceptor{
   }
 
   getBookId(id: string): Observable<Books> {
-    return this.http.get<Books>(`${this.URL}/books/owner${id}`);
+    return this.http.get<Books>(`${this.URL}/books/owner/${id}`);
   }
 
   filterBooks(filters: Filter): Observable<BooksResponse> {
@@ -51,7 +50,5 @@ export class BooksService implements HttpInterceptor{
     return this.http.post(`${this.URL}/books/owner`, books);
   }
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.URL}/category`);
-  }
+ 
 }

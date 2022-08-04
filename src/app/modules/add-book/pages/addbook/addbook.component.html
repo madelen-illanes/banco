@@ -1,72 +1,77 @@
 <app-header-user></app-header-user>
 <section>
-    <div class="addbook-auth-page">
-      
-        <form   class="addbook-auth-form">
-  <div class="containerInputs">
+    <div class="addbook-auth-page">    
+        <form  [formGroup]="formBooks" (submit)="addBook()" class="addbook-auth-form">
+          <div class="containerInputs">
             <h1>Registrarse</h1><hr>
-<div class="containerOnlyInputs">
-         <div class="form-group">
-            <label for="userName"> Nombre del Libro </label>
-            <input type="text" formControlName="username" class="form-input" placeholder="Ej. Angular + NGRX">
-            </div>
-        <!-- <div *ngIf="username.touched && username.errors">
-                <small class="alertDanger" *ngIf="username.hasError('required')">Nombre de usuario requerido</small>
-                <small class="alertDanger" *ngIf="username.hasError('exist')">El nombre de usuario ya existe</small>
-            </div> -->
-        <div class="form-group">  
-            <label for="email"> URL del Libro</label>
-            <input type="email" formControlName="email" class="form-input" placeholder="Ej. https://books-all.com/sabhjxm2k">
-        </div>
-            <!-- <div *ngIf="email.touched && email.errors">
-                <small class="alertDanger" *ngIf="email.hasError('required')">Correo electrónico requerido</small>
-                <small class="alertDanger" *ngIf="email.hasError('email')">Ingrese un correo electrónico válido</small>
-            </div> -->
-        <div class="form-group">   
-            <label for="password"> Resumen del Libro </label>
-            <input type="password" formControlName="password" class="form-input" placeholder="Ej.....">
-        </div> 
-            <!-- <div *ngIf="password.touched && password.errors">
-                <small class="alertDanger" *ngIf="password.hasError('required')">Contraseña requerida</small>
-                <small class="alertDanger" *ngIf="password.hasError('pattern')">La contraseña debe tener mínimo una letra mayúscula, un número y un caracter especial</small><br>
-                <small class="alertDanger" *ngIf="password.hasError('minlength')">La contraseña debe tener 8 caracteres como mínimo</small>
-            </div> -->
-        <div class="form-group">
-            <label for="confirmPassword"> Nombre del Autor </label>
-            <input type="password" formControlName="confirmPassword" class="form-input" placeholder="Ej. Kevin Suarez">
-        </div> 
-            <!-- <div *ngIf="confirmPassword.touched && confirmPassword.errors">
-                <small class="alertDanger" *ngIf="confirmPassword.hasError('required')">Contraseña requerida</small>
-                <small class="alertDanger" *ngIf="confirmPassword.hasError('minlength')">La contraseña debe tener 8 caracteres como mínimo</small>
-                <small class="alertDanger" *ngIf="">La contraseña no coincide</small>
-            </div> -->
+
+        <div class="containerOnlyInputs">
             <div class="form-group">
-                <label for="confirmPassword"> Imagen de Portada </label>
-                <input type="password" formControlName="confirmPassword" class="form-input" placeholder="Ej. https://books-all.com/safj/img">
+            <label for="title"> Nombre del Libro </label>
+
+        <input type="text" formControlName="title" class="form-input" placeholder="Ej. Angular + NGRX">
+            </div>
+             <div *ngIf="title.touched && title.errors">
+                <small class="alertDanger" *ngIf="title.hasError('required')">Nombre de libro requerido</small>    
             </div> 
-        <div class="containerCategories">
-                <h1>Categorias</h1>
 
-                <!-- <div *ngFor="let control of categoriesArray.controls; let i = index;" >
-        
-                    <input [formControl]="$any(control)" (change)="getSelectedCategories()" type="checkbox"
-                        id="inlineCheckbox{{i}}" value="">
-                        <label for="inlineCheckbox{{i}}">{{categories[i]}}</label>
-                </div> -->
+        <div class="form-group">  
+            <label for="url"> URL del Libro</label>
+            <input type="text" formControlName="url" class="form-input" placeholder="Ej. https://books-all.com/sabhjxm2k">
+        </div>
+           <div *ngIf="url.touched && url.errors">
+                <small class="alertDanger" *ngIf="url.hasError('required')">Url de libro requerido</small>
+            </div>
 
-                <!-- <small class="alertDanger" *ngIf="categororyErrors && checkCategoriesControlTouched()">
-                    Debe seleccionar 3 categorías como mínimo</small> -->
+        <div class="form-group">   
+            <label for="resume"> Resumen del Libro </label>
+            <input type="text" formControlName="resume" class="form-input" placeholder="Ej.....">
+        </div> 
+           <div *ngIf="resume.touched && resume.errors">
+                <small class="alertDanger" *ngIf="resume.hasError('required')">Resumen requerida</small>
+            </div>
+
+        <div class="form-group">
+            <label for="author"> Nombre del Autor </label>
+            <input type="text" formControlName="author" class="form-input" placeholder="Ej. Kevin Suarez">
+        </div> 
+             <div *ngIf="author.touched && author.errors">
+                <small class="alertDanger" *ngIf="author.hasError('required')">Autor Requerido</small>
+            </div>
+
+            <label>Imagen de portada</label>
+            <input formControlName="image" type="text" placeholder="Ej. https://books-all.com/safj/img">
+            <div *ngIf="image.touched && image.errors">
+            <small class="alertDanger" *ngIf="image.hasError('required')"> Este campo es requerido</small>
+        </div>
+
+         <label class="checkboxLabel">Publicar</label>
+         <input class="checkbox" formControlName="public" type="checkbox">
+         <div  *ngIf="public.touched && public.errors" >
+         <small class="alertDanger" *ngIf="public.hasError('required')">Este campo es requerido</small> 
+         </div>
+            
+         
+                <div class="categorieSection">
+                    <label>Seleccione una categoría</label>
+                    <select class="end">
+                        <option selected> Seleccione...</option>
+                        <option [innerHTML]="categorie.description"
+                                [value]="categorie.id"
+                                *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"
+                        ></option>
+                      </select>
+                     
             </div>
         </div>
     </div>
-            <div class="containerBtns">
-              
-                <input type="submit" value="Cancelar" class="addbook social-btn">
+             <div class="containerBtns">
+                <button routerLink="/home" class="addbook social-btn">Cancelar</button>
                 <input type="submit" value="Registrar" class="addbook social-btn">
-                <!-- <div class="loading" *ngIf="formaddbook.pending"> </div> -->
-            
-            </div>
 
+            </div>
+            
         </form>
     </div>
+   
 </section>

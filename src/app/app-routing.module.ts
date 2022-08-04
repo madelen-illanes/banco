@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AddbookComponent} from './modules/add-book/pages/addbook/addbook.component';
+import { BookDisplayComponent } from './modules/book-display/pages/book-display/book-display.component';
 import {HomePageComponent} from './modules/home/pages/home-page/home-page.component';
 import {RegisterPageComponent} from './modules/register/pages/register-page/register-page.component';
 
@@ -29,6 +30,11 @@ const routes: Routes = [
         path: 'add',
         component: AddbookComponent,
         loadChildren: () => import('./modules/add-book/add-book.module').then(m => m.AddBookModule)
+      },
+      {
+        path: 'display',
+        component: BookDisplayComponent,
+        loadChildren: () => import('./modules/book-display/book-display.module').then(m => m.BookDisplayModule)
       }
     ]
   },

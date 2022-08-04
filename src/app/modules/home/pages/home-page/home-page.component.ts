@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {lastValueFrom, Observable, Subscription} from 'rxjs';
-import {environment} from 'src/environments/environment';
+import { Observable, Subscription} from 'rxjs';
 import {Books} from '../../../../core/books.interface';
-import {Filter} from '../../../../core/filter.interface';
-import {SelectItem} from '../../../../core/select.interface';
 import {BooksService} from '../../../../services/books.service/books.service';
 import {AuthService} from 'src/app/services/auth.service/auth.service';
 import {Category} from "../../../../core/category.interface";
+import { CategoryService } from '../../../../services/category.service/category.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +13,6 @@ import {Category} from "../../../../core/category.interface";
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  username = this.authService.user.username;
   books: Books[] = [];
   selectedCategory!: number;
   searchTerm = '';
@@ -25,10 +22,11 @@ export class HomePageComponent implements OnInit {
 
 
   constructor(
+    private categoryService:CategoryService,
     private booksService: BooksService,
     private router: Router,
     private authService: AuthService,) {
-    this.categories$ = this.booksService.getCategories()
+    this.categories$ = this.categoryService.getCategories()
   }
 
 
@@ -42,7 +40,7 @@ export class HomePageComponent implements OnInit {
         this.books = books;
       })
 
-    // this.books = this.booksService.userBooks;
+
   }
 
 
