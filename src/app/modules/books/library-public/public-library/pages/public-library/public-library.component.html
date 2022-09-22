@@ -1,0 +1,72 @@
+<app-header-user></app-header-user>
+<div class="row">
+<div class="container">
+
+    <div class="privateLibrary">
+    <pichincha-typography variant="h3" weight="bold" color="black">Tus Libros</pichincha-typography>
+    
+    <div class="book-section">
+        <li *ngFor="let book of books" >
+            <img  appImgBroken
+                 [src]="book.image">
+          </li>
+          <div class="btn">
+          <pichincha-button routerLink="/home" 
+          class="idButton"
+          size="small" 
+          color="secundary">
+            Ver más
+         </pichincha-button>
+        </div>
+    </div>
+
+</div><br>
+
+    <pichincha-typography variant="h4" weight="bold" color="black">Publicaciones</pichincha-typography>
+    <div class="publications">
+       
+       <div class="imgBooks">
+        <div class="book-section2">
+            <li *ngFor="let book of publicListBook">
+                <img  appImgBroken
+                     [src]="book.image">
+              </li>
+    
+        </div>
+      
+      
+       </div>
+       <div class="seeker">
+   
+        <div class="row">
+          <form autocomplete="off">
+            <pichincha-input appInputAcessor
+              [formControl]="search" 
+              label="Buscar" class="input"
+              weight="bold"
+              placeholder="Búsqueda, Ej: React, Angular" 
+              id-element="search" [fullWidth]="true">
+            </pichincha-input>
+          </form>
+          </div>
+          <div class="row">
+            <pichincha-typography variant="h5" weight="bold" color="black">Categorías</pichincha-typography>
+          </div>
+          <div class="row-wrap">
+            <div *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"  class="checkbox">
+              <pichincha-check-box
+               (clickCheck)="clickCheckBox($any($event))"
+                id-element="category-{{categorie.id}}"
+                [value]="categorie.id"
+                disabled="false" >
+                <pichincha-typography variant="bodyText">
+                  {{categorie.description}}
+                </pichincha-typography>
+              </pichincha-check-box>
+       </div>
+    </div>
+ </div>
+
+</div>
+</div>
+</div>

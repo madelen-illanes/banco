@@ -1,0 +1,239 @@
+*{
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+@media(max-width: 575px){
+  
+.row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0px;
+  border-radius: 0px 0px 10px 10px;
+  margin-top: 10px;
+
+}
+.container{
+  width: 85%;
+}
+.book-section {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  margin-top: 4vw;
+   li{
+    width: 40vw;
+    height: 50vw;
+    box-shadow: var(--shadow-1);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   }
+   li:hover{
+   background: rgba(238, 235, 235, 0.61);
+   }
+   img
+   {
+    max-width: 95%;
+    height: 95%;
+  }
+}
+.inputOption>input,.inputOption>select{
+  border: 0;
+  padding-left: 10px;
+  width: 30vw;
+  height: 9vw;
+  font-size: var(--font-size-1);
+  border-radius: var(--border-radius-2);
+  border: solid 1px var(--color-4);
+}
+.optionSpace{
+  width: 40vw;
+}
+}
+@media(min-width:576px) and(max-width:767px){ 
+.row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0px;
+  border-radius: 0px 0px 10px 10px;
+  margin-top: 10px;
+}
+.container{
+  width: 85%;
+}
+.book-section {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8vw;
+  margin-top: 4vw;
+
+   li{
+    width: 30vw;
+    height: 40vw;
+    box-shadow: var(--shadow-1);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   }
+   li:hover{
+   background: rgba(238, 235, 235, 0.61);
+   }
+   img
+   {
+    max-width: 80%;
+    height: 80%;
+  }
+}
+.inputOption>input,.inputOption>select{
+  border: 0;
+  padding-left: 10px;
+  width: 22.5vw;
+  height: 8vw;
+  font-size: var(--font-size-1);
+  border-radius: var(--border-radius-2);
+  border: solid 1px var(--color-4);
+}
+}
+@media(min-width:768px) and(max-width:991px){
+.row{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputUp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0px;
+  border-radius: 0px 0px 10px 10px;
+  margin-top: 10px;
+
+}
+.container{
+  width: 85%;
+}
+.book-section {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6.5vw;
+  margin-top: 4vw;
+
+   li{
+    width: 23vw;
+    height: 30vw;
+    box-shadow: var(--shadow-1);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   }
+   li:hover{
+   background: rgba(238, 235, 235, 0.61);
+   }
+   img
+   {
+    max-width: 80%;
+    height: 80%;
+  }
+}
+.inputOption>input,.inputOption>select{
+  border: 0;
+  padding-left: 10px;
+  width: 17vw;
+  height: 6vw;
+  font-size: var(--font-size-1);
+  border-radius: var(--border-radius-2);
+  border: solid 1px var(--color-4);
+}
+}
+@media(min-width:992px) {
+  .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputUp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0px;
+    border-radius: 0px 0px 10px 10px;
+    margin-top: 10px;
+  
+  }
+  
+  .container{
+    width: 85%;
+  }
+  
+  .book-section {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6.5vw;
+    margin-top: 4vw;
+  
+     li{
+      width: 23vw;
+      height: 30vw;
+      box-shadow: var(--shadow-1);
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+     }
+     li:hover{
+     background: rgba(238, 235, 235, 0.61);
+     }
+     img
+     {
+      max-width: 80%;
+      height: 80%;
+    }
+  }
+  .inputOption>input,.inputOption>select{
+    border: 0;
+    padding-left: 10px;
+    width: 13.2vw;
+    height: 5vw;
+    font-size: var(--font-size-1);
+    border-radius: var(--border-radius-2);
+    border: solid 1px var(--color-4);
+  }
+
+}

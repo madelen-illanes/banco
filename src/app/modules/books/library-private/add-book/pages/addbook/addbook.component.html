@@ -1,0 +1,146 @@
+<div>
+<app-header-user></app-header-user>
+</div>
+    <div class="container-fluid">    
+        <form  [formGroup]="formBooks"  class="addbook-auth-form">
+          <div class="containerInputs">
+            <pichincha-typography variant="h3" weight="bold" color="black">Registro Libro</pichincha-typography>
+            <hr>
+
+        <div class="containerOnlyInputs">
+            <div class="container1">
+                
+            <div class="form-group">
+           
+            <pichincha-input appInputAcessor
+            formControlName="title" 
+            label="Nombre de libro" 
+            [fullWidth]= "true"
+            [showIconStatus]="true"
+            placeholder="Ej. Angular + NGRX"
+            [errorHelper]="'Nombre de libro requerido'">
+            </pichincha-input>
+        <!-- <input type="text" formControlName="title" class="form-input" placeholder="Ej. Angular + NGRX"> -->
+            </div>
+             <!-- <div *ngIf="title.touched && title.errors">
+                <small class="alertDanger" *ngIf="title.hasError('required')">Nombre de libro requerido</small>    
+            </div>  -->
+
+
+        <div class="form-group">  
+          
+            <pichincha-input appInputAcessor formControlName="url"
+             label="URL del Libro" 
+             [fullWidth]= "true"
+             [showIconStatus]="true"
+             [errorHelper]="'Url de libro requerido'"
+             placeholder="Ej. https://bks.com/sa1">
+            </pichincha-input>
+            <!-- <input type="text" formControlName="url" class="form-input" placeholder="Ej. https://books-all.com/sabhjxm2k"> -->
+        </div>
+           <!-- <div *ngIf="url.touched && url.errors">
+                <small class="alertDanger" *ngIf="url.hasError('required')">Url de libro requerido</small>
+            </div> -->
+
+
+        <div class="form-group">   
+            <!-- <label for="resume"> Resumen del Libro </label> -->
+            <pichincha-input appInputAcessor formControlName="resume"
+             label="Resumen del Libro" 
+             [fullWidth]= "true"
+             [showIconStatus]="true"
+             [errorHelper]="'Resumen requerido'"
+             placeholder="Ej......">
+            </pichincha-input>
+            <!-- <input type="text" formControlName="resume" class="form-input" placeholder="Ej....."> -->
+        </div> 
+    </div>
+           <!-- <div *ngIf="resume.touched && resume.errors">
+                <small class="alertDanger" *ngIf="resume.hasError('required')">Resumen requerida</small>
+            </div> -->
+
+        <div class="container2">
+        <div class="form-group">
+            
+            <pichincha-input appInputAcessor formControlName="author"
+             label="Nombre del Autor"
+             [fullWidth]= "true"
+             [showIconStatus]="true"
+             [errorHelper]="'Autor requerido'"
+             placeholder="Ej.Pablo Neruda">
+            </pichincha-input>
+            <!-- <input type="text" formControlName="author" class="form-input" placeholder="Ej. Kevin Suarez"> -->
+        </div> 
+             <!-- <div *ngIf="author.touched && author.errors">
+                <small class="alertDanger" *ngIf="author.hasError('required')">Autor Requerido</small>
+            </div> -->
+
+        <div class="form-group">
+            <pichincha-input appInputAcessor formControlName="image" 
+            label="Imagen de Portada"
+            [fullWidth]= "true"
+            [showIconStatus]="true"
+            [errorHelper]="'Este campo es requerido'"
+            placeholder="Ej. https://bks.com/img">
+            </pichincha-input>
+            <!-- <input formControlName="image" type="text" placeholder="Ej. https://books-all.com/safj/img"> -->
+            <!-- <div *ngIf="image.touched && image.errors">
+            <small class="alertDanger" *ngIf="image.hasError('required')"> Este campo es requerido</small>
+        </div> -->
+        
+        </div>
+        <div>
+         <input class="checkbox" formControlName="public" type="checkbox">
+         <label class="checkboxLabel">Publicar</label>
+         </div>
+         <div  *ngIf="public.touched && public.errors" >
+         <small class="alertDanger" *ngIf="public.hasError('required')">Este campo es requerido</small> 
+         </div>
+        </div>
+    </div>
+                <!-- <div class="categorieSection">
+                    <label>Seleccione una categoría</label><br>
+                    <select class="end">
+                        <option selected> Seleccione...</option>
+                        <option [innerHTML]="categorie.description"
+                                [value]="categorie.id"
+                                *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"
+                        ></option>
+                      </select>
+                     
+            </div> -->
+            <pichincha-typography variant="h4" weight="bold" color="black">Seleccione una categoría</pichincha-typography>
+            <div *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"  class="checkbox">
+                <pichincha-check-box
+                  id-element="category-{{categorie.id}}"
+                  [value]="categorie.id"
+                  disabled="false" >
+                  <pichincha-typography variant="bodyText">
+                    {{categorie.description}}
+                  </pichincha-typography>
+                </pichincha-check-box>
+         </div>
+    </div>
+             <div class="containerBtns">
+                <!-- <button routerLink="/home" class="addbook social-btn">Cancelar</button> -->
+                <pichincha-button routerLink="/home" 
+                size="large" id="idButton" 
+                color="secondary">
+                Cancelar
+                </pichincha-button>
+                <!-- <input type="submit" value="Registrar" class="addbook social-btn" [disabled]="formBooks.invalid" > -->
+                <pichincha-button  
+                (click)="addBook()"
+                size="large" id="idButton" 
+                color="primary" 
+                [disabled]="formBooks.invalid">
+                Registrar
+                </pichincha-button>         
+            </div>
+            
+        </form>
+    </div>
+   
+
+
+<!-- (click)="addBook()" -->

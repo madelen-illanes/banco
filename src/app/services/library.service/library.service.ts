@@ -18,8 +18,8 @@ export class LibraryService {
     return this.http.post<any>( `${this.URL}/users/`, body) 
   }
 
-  existUserName(username: string):Observable<any>{ 
-    return this.http.get<any>(`${this.URL}/users/exist-name/`+ username)
+  existUserName(name: string):Observable<any>{ 
+    return this.http.get<any>(`${this.URL}/users/exist-name/`+ name)
 
   }
 

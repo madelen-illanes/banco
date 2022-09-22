@@ -22,7 +22,7 @@ export class RegisterPageComponent implements OnInit {
   
   constructor(private formBuilder: FormBuilder,private libraryService: LibraryService ) {
     this.formRegister = this.formBuilder.group({
-      username: ['',{
+      name: ['',{
         validators: [Validators.required], asyncValidators: [ verifyUserName(this.libraryService)], upDateOn: 'blur' } ],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, 
@@ -34,7 +34,7 @@ export class RegisterPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-   this.username;
+   this.name;
    this.email;
    this.password;
    this.confirmPassword;
@@ -43,8 +43,8 @@ export class RegisterPageComponent implements OnInit {
 
   //Validaciones
 
-  get username(): FormControl{
-    return this.formRegister.get('username') as FormControl
+  get name(): FormControl{
+    return this.formRegister.get('name') as FormControl
     }
 
   get email(): FormControl {
@@ -60,9 +60,9 @@ export class RegisterPageComponent implements OnInit {
   }
 
   usernameErrorsControl(){
-    this.username.setErrors({
+    this.name.setErrors({
       "exist": true,
-      "usernameExist": true
+      "nameExist": true
     })
     
   }
@@ -118,7 +118,7 @@ export class RegisterPageComponent implements OnInit {
     const formValue = this.formRegister.getRawValue();
     const newCategory = this.selectedCategories;
     this.user= {
-      username: formValue.username,
+      name: formValue.name,
       email: formValue.email,
       password: formValue.password,
       category: {...newCategory}
@@ -145,7 +145,7 @@ export class RegisterPageComponent implements OnInit {
     .pipe(
       tap((a)=> {console.log('resp', a)}),
       map(
-        (response:any) => ( response.exist ? { usernameExist: true} : null)
+        (response:any) => ( response.exist ? { nameExist: true} : null)
       )
     )
   }

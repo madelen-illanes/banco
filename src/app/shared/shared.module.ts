@@ -1,24 +1,28 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { ImgBrokenDirective } from './directives/img-broken.directive';
+import { InputValueAcessorDirective } from './directives/input-value-acessor.directive';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent,
+   
     HeaderUserComponent,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    InputValueAcessorDirective,
+    
   ],
   imports: [
     CommonModule,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports : [
-    NavbarComponent,
+  
     HeaderUserComponent,
-    ImgBrokenDirective
+    ImgBrokenDirective,
+    InputValueAcessorDirective
   ]
 })
 export class SharedModule { }

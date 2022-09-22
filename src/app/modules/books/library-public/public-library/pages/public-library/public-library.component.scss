@@ -1,0 +1,327 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+  }
+ 
+  @media(max-width: 575px){
+    .container{
+      width: 85%;
+    }
+    .row{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .publications{
+      display: flex;
+      position:static
+    }
+    .book-section {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3vw;
+      margin-top: 4vw;
+       li{
+        width: 40vw;
+        height: 50vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+      .btn{
+        margin-right: 57vw;
+      }
+     
+    }
+    .book-section2{
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      margin-top: 4vw;
+       li{
+        width: 32vw;
+        height: 40vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+    }
+    .seeker{
+      width: 60vw;
+      height: 87vw;
+      box-shadow: var(--shadow-1);
+      padding: 2vw;
+      cursor: pointer;
+      margin-top: 4vw;   
+    }
+  }
+  @media(min-width:576px) and(max-width:767px){
+    .container{
+      width: 85%;
+    }
+    .row{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .publications{
+      display: flex;
+      position:static
+    }
+    .book-section {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3vw;
+      margin-top: 4vw;
+       li{
+        width: 18vw;
+        height: 22vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 98%;
+        height: 98%;
+      }
+      .btn{
+        margin-right: 67vw;
+      }
+    }
+    .book-section2{
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      margin-top: 4vw;
+       li{
+        width: 25vw;
+        height: 35vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 98%;
+        height: 98%;
+      }
+    }
+    .seeker{
+      width: 80vw;
+      height: 54vw;
+      box-shadow: var(--shadow-1);
+      padding: 2vw;
+      cursor: pointer;
+      margin-top: 4vw;   
+    }
+  }
+  @media(min-width:768px) and(max-width:991px){
+    .container{
+      width: 85%;
+    }
+    .row{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .publications{
+      display: flex;
+      position:static
+    }
+    .book-section {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3vw;
+      margin-top: 4vw;
+       li{
+        width: 18vw;
+        height: 26vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+      .btn{
+      margin-right: 72vw;
+    }
+    }
+    .book-section2{
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      margin-top: 4vw;
+       li{
+        width: 18vw;
+        height: 25vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+    }
+    .seeker{
+      width: 60vw;
+      height: 38vw;
+      box-shadow: var(--shadow-1);
+      padding: 2vw;
+      cursor: pointer;
+      margin-top: 4vw;   
+    }
+  }
+  @media(min-width:992px) {
+    .container{
+      width: 85%;
+    }
+    .row{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .publications{
+      display: flex;
+      position:static
+    }
+    .book-section {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3vw;
+      margin-top: 4vw;
+       li{
+        width: 18vw;
+        height: 26vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+      .btn{
+      margin-right: 72vw;
+    }
+    }
+    .book-section2{
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      margin-top: 4vw;
+       li{
+        width: 15vw;
+        height: 18vw;
+        box-shadow: var(--shadow-1);
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+       }
+       li:hover{
+       background: rgba(238, 235, 235, 0.61);
+       }
+       img
+       {
+        max-width: 95%;
+        height: 95%;
+      }
+    }
+    .seeker{
+      width: 50vw;
+      height: 27vw;
+      box-shadow: var(--shadow-1);
+      padding: 2vw;
+      cursor: pointer;
+      margin-top: 4vw;   
+    }
+  }

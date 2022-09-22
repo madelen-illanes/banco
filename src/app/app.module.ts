@@ -7,24 +7,30 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { BooksService } from './services/books.service/books.service';
+import { InterceptorService } from './interceptors/interceptor.service';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    
    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS,
-      useClass: BooksService,
+      useClass: InterceptorService,
       multi:true}
   ],
   bootstrap: [AppComponent],

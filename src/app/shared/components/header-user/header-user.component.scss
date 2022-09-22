@@ -1,8 +1,38 @@
-.row {
-    display: inline-flex;
-    justify-content: space-between;
-    width  : 950px;
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    // background: #f4f6f9;
 }
-h2{
-    margin-left: 168%;
+
+@media(max-width: 575px){
+    .header{
+        display:flex;
+        justify-content: space-between;
+        margin: 2vw 7.3vw 2vw 7.3vw;
+    }
+    
+}
+@media(min-width:576px) and(max-width:767px){
+    .header{
+        display:flex;
+        justify-content: space-between;
+        margin: 2vw 7.3vw 2vw 7.3vw;
+    }  
+}
+@media(min-width:768px) and(max-width:991px){
+    .header{
+        display:flex;
+        justify-content: space-between;
+        margin: 2vw 7.3vw 2vw 7.3vw;
+    }
+    
+}
+@media(min-width:992px) {
+    .header{
+        display:flex;
+        justify-content: space-between;
+        margin: 2vw 7.3vw 2vw 7.3vw;
+    }
+    
 }

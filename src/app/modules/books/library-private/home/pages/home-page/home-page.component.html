@@ -1,0 +1,47 @@
+<app-header-user></app-header-user>
+<div class="row">
+
+  <div class="container">
+<div class= "inputUp">
+  <pichincha-typography variant="h2" weight="bold" color="black">Tus Libros</pichincha-typography>
+  
+  <pichincha-button routerLink="/books/add" 
+  size="large" id="idButton" 
+  color="secundary">
+  Agregar Libro
+  </pichincha-button>
+   
+  </div>
+  <div class="inputUp inputOption" >
+  
+    <!-- <form (ngSubmit)= "searchBook()" utocomplete="off">
+    <input   class="input"  placeholder="Ej: React, Angular" >
+    </form> -->
+    <form autocomplete="off">
+    <pichincha-input appInputAcessor
+    [formControl]="search"
+    class="optionSpace" full-width=true 
+    placeholder="Ej. Angular , React"
+    >
+  </pichincha-input>
+   </form>
+    <select class="end">
+      <option  selected> Seleccione...</option>
+      <option (click)="getcharactersbysearch()" [innerHTML]="categorie.description"
+              [value]="categorie.id"
+              *ngFor="let categorie of (categories$ | async | slice: 0: 5 )"
+      ></option>
+    </select>
+  </div> 
+
+  <div class="book-section">
+    
+      <li *ngFor="let book of books" [routerLink] = "['/books','display', book.id] ">
+        <img  appImgBroken
+             [src]="book.image">
+      </li>
+    
+  </div>
+</div>
+</div>
+

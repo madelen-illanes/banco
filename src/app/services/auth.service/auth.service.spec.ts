@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../src/environments/environment';
 
 
 import { AuthService } from './auth.service';
@@ -8,53 +8,48 @@ import { AuthService } from './auth.service';
 describe('AuthService', () => {
   let service: AuthService;
   let URL = environment.api;
-  let httpController: HttpTestingController;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-     
+      imports: [   
         HttpClientTestingModule       
       ],
     });
-    httpController = TestBed.inject(HttpTestingController );
+    httpMock = TestBed.inject(HttpTestingController );
     service = TestBed.inject(AuthService);
   });
-  afterEach(() => {
-    httpController.verify();
-  });
+  
+  afterEach(() =>{
+    httpMock.verify();
+  })
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  it('login user', () => {
-    
+
+
+  it('should retur login user', () => {   
     const mockBody ={
       username: '',
-      password:'',
-     
+      password:'',  
     }
-
     const mockResponse = {
       user: {
         userId: "w7qfsa5f21",
         username: "ksuarez"
-    },
-    access_token: "eyJhbG",
-    tokenType: "Bearer" 
+            },
+      access_token: "eyJhbG",
+      tokenType: "Bearer" 
     }
    
     service.sendCredentials(mockBody)
     .subscribe()
-    let url = URL + 'users/login'
-    let req = httpController.expectOne(url)
+    let url = URL + '/users/login'
+    let req = httpMock.expectOne(url)
     let request = req.request
     
-    expect(
-      request.method
-    ).toBe('POST')
-   
-    
+    expect(request.method).toBe('POST')
     req.flush(mockResponse)
   })
 });

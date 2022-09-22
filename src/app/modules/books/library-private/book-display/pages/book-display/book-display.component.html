@@ -1,0 +1,53 @@
+<app-header-user></app-header-user>
+
+        
+            <div class="containerBtns">
+                <pichincha-button routerLink="/home" 
+                 size="medium" id="idButton"
+                 color="secundary">
+                    Volver
+                </pichincha-button>
+
+                <pichincha-button
+                 [routerLink] = "[ '/books/edit/:id', book.id]"
+                 size="medium" id="idButton"
+                 color="primary">
+                    Editar
+                </pichincha-button>
+
+            </div>
+        
+        <div *ngIf="book"
+        class="row-left"
+          >
+         <img [src]="book.image">
+        <div class="container">
+
+         <div class="row">
+        <pichincha-typography variant="h5" weight="bold" color="black">Título</pichincha-typography>
+        <pichincha-typography variant="h6" weight="normal" color="black"> {{book.title}}</pichincha-typography>
+        </div>
+
+         <div class="row">
+            <pichincha-typography variant="h5" weight="bold" color="black">Autor</pichincha-typography>
+            <pichincha-typography variant="h6" weight="normal" color="black">{{book.author}}</pichincha-typography>
+        </div> 
+
+        <div class="row">
+            <pichincha-typography variant="h5" weight="bold" color="black">Url</pichincha-typography>
+            <pichincha-typography variant="h6" weight="normal" color="black">{{book.url}}</pichincha-typography>
+       </div>
+
+       <div class="row">
+        <pichincha-typography variant="h5" weight="bold" color="black">Resumen</pichincha-typography>
+        <pichincha-typography variant="h6" weight="normal" color="black">{{book.resume}}</pichincha-typography>
+        </div> 
+
+         <div class="row">
+            <pichincha-typography variant="h5" weight="bold" color="black">Category</pichincha-typography>
+            <pichincha-typography variant="h6" weight="normal" color="black">{{book.category}}</pichincha-typography>
+           </div>
+        
+            </div>
+        </div>
+   

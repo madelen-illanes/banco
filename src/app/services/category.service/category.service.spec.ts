@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CategoryService } from './category.service';
-import { Books } from '../../core/books.interface';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../src/environments/environment';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Category } from '../../core/category.interface';
 
 describe('CategoryService', () => {
   let service: CategoryService;
@@ -16,29 +16,33 @@ describe('CategoryService', () => {
         HttpClientTestingModule
       ]
     });
+    http = TestBed.inject(HttpTestingController );
     service = TestBed.inject(CategoryService);
   });
 
   it('should bring the get method', () => {
-    const mockBooks: Books[] = [
+    const mockCategory: Category []= [
       {
-        id: "2ac4ly00oen",
-        public: true,
-        author: "Unknow",
-        resume: "",
-        title: "Learning Angular, 2nd Edition",
-        subtitle: "A Hands-On Guide to Angular 2 and Angular 4",
-        image: "https://itbook.store/img/books/9780134576978.png",
-        url: "https://itbook.store/books/9780134576978",
-        category: [
-          57
-        ],
-        userRegister: "w7qfsa5f21"
+        id: 1,
+        description: 'prueba1'
       },
-    ]
+      {
+        id: 2,
+        description: 'prueba2'
+      },
+      {
+        id: 3,
+        description: 'prueba3'
+      }
+    ];
+    service.getCategories().subscribe(res => {
+      expect(res.length).toBe(3);
+      expect(res).toEqual(mockCategory);
+    });
 
-    const req = http.expectOne(`${URL}/books/owner`);
+    let url = URL + '/category'
+    const req = http.expectOne(url);
     expect(req.request.method).toBe("GET");
-    req.flush(mockBooks);
+    req.flush(mockCategory);
   });
 });

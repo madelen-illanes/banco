@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../services/auth.service/auth.service';
 import {Router} from '@angular/router';
-import {LoginUser} from 'src/app/core/login.interface';
+import {LoginUser} from '../../../../core/login.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +10,8 @@ import {LoginUser} from 'src/app/core/login.interface';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  errorLogin: boolean = false
+
+  // errorLogin: boolean = false
   loginuser!: LoginUser;
   messageError: undefined;
   formLogin!: FormGroup
@@ -20,7 +21,7 @@ export class LoginPageComponent implements OnInit {
               private fb: FormBuilder) {
 
     this.formLogin = this.fb.group({
-      userName: [null, [Validators.required,]],
+      username: [null, [Validators.required,]],
       password: [null, [
         Validators.required,
         Validators.minLength(8),
@@ -29,6 +30,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
 
@@ -37,23 +39,30 @@ export class LoginPageComponent implements OnInit {
     return this.formLogin.get('password') as FormControl
   }
 
-  get userName(): FormControl {
-    return this.formLogin.get('userName') as FormControl
+  get username(): FormControl {
+    return this.formLogin.get('username') as FormControl
   }
 
 
-  setErrorPassword() {
-    this.password.setErrors({
-      "exist": true
-    })
-  }
+  // setErrorPassword() {
+  //   this.password.setErrors({
+  //     "exist": true
+  //   })
+  // }
+
+  // errorUserNameLogin() {
+  //   if (this.username!.errors && this.username!.errors['required']) {
+  //     return 'Usuario es requerido';
+  //   } else {
+  //     return 'Usuario no existe'
+  //   }
+  // }
 
   sendLogin(user: LoginUser) {
     const formValue = this.formLogin.getRawValue();
     this.loginuser = {
-      username: formValue.userName,
+      username: formValue.username,
       password: formValue.password,
-
     }
 
     if (this.formLogin.invalid) {
@@ -63,14 +72,14 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.sendCredentials(this.loginuser)
       .subscribe({
-        next: (res: { access_token: string; userId: string; username: string; user: { userId: string | null; username: string | null; }; }) => {
-          console.log('recibiendo respuesta', res)
+        next: (res: { access_token: string; userId: string; username: string;
+          user: { userId: string | null; username: string | null; }; }) => {
+          console.log('recibiendo la respuesta', res)
           sessionStorage.setItem('access_token', res.access_token)
           sessionStorage.setItem('userId', res.userId)
           sessionStorage.setItem('username', res.username)
           this.authService.user = res.user;
-          this.router.navigate(['/home'])
-
+          this.router.navigate(['/public'])
         },
         error: (error: { message: undefined; }) => {
           this.messageError = error.message

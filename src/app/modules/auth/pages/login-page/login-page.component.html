@@ -1,24 +1,41 @@
-<div class="login-auth-page">
-       
-        <form (ngSubmit)= "sendLogin(formLogin.value)" [formGroup]="formLogin" class="login-auth-form">
+<div class="container-fluid">
+   
+    
+        <form  [formGroup]="formLogin" class="login-auth-form">
+            <!-- <form  [formGroup]="formLogin" class="login-auth-form"> -->
           <div class="containerInputs">
-            <h1 id="title">Iniciar sesión</h1><hr>
+
+            <pichincha-typography variant="h3" weight="bold" color="black">Iniciar Sesión</pichincha-typography><br>
+            <hr>
+
             <div class="containerOnlyInputs">
+
             <div class="form-group">
-                <label for="userName">Usuario</label>
-                <input formControlName = "userName" type="text" placeholder="Ej.makoto" class="form-input">
+                <pichincha-input appInputAcessor formControlName = "username" 
+                label="Usuario"   [fullWidth]= "true" placeholder="Ej.Madelen" 
+                [showIconStatus]="true"
+                [errorHelper]="'Usuario es requerido'">
+                </pichincha-input> 
             </div>
-            <div *ngIf=" userName.touched && userName.errors">
+
+            <!-- <div *ngIf=" userName.touched && userName.errors">
                 <small *ngIf="userName.hasError('required')" 
                 class="alertDanger">
                     Usuario es requerido
                 </small>
-            </div>
+            </div> -->
+
             <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input formControlName = "password" type="password" placeholder=" **** " class="form-input">
+                <pichincha-input appInputAcessor formControlName="password"
+                label="Contraseña" type="password"   [fullWidth]= "true" placeholder="***"
+                [showIconStatus]="true"
+                [minLength]= "8"
+                [errorHelper]="'Contraseña es requerida'"
+                >
+                </pichincha-input>
+               
             </div>
-            <div *ngIf=" password.touched && password.errors">
+            <!-- <div *ngIf=" password.touched && password.errors">
                 <small *ngIf="password.hasError('required')" 
                 class="alertDanger">
                     Contraseña es requerida</small>
@@ -28,7 +45,7 @@
                  <small *ngIf="password.hasError('minlength')  " 
                 class="alertDanger">
                     La contraseña debe contener más de 8 caracteres</small>
-            </div>
+            </div> -->
         </div>
     </div>
         <div class="containerButtons">
@@ -37,13 +54,32 @@
             </div>
            
             <div class="form-action">
-                <button class="login social-btn">Iniciar sesión</button>
+                
+                <pichincha-button (click)= "sendLogin(formLogin.value)" size="large" 
+                id="idButton" color="primary" [disabled]="formLogin.invalid">
+                    Iniciar Sesión
+                </pichincha-button>
+
+                
             </div>
         </div>
-            <p *ngIf="messageError" id="alertmessage" class="alertDanger"> Error de logueo {{ messageError }} </p>
+            <!-- <p *ngIf="messageError" id="alertmessage" class="alertDanger"> Error de logueo {{ messageError }} </p> -->
         </form>
     </div>
+    
     <div>
-        <!-- // <hr> Raw: {{formLogin.value | json}} -->
+  
     </div>
     
+
+
+
+
+
+
+    <!-- //TODO: DS BANCO PICHINCHA -->
+    <!-- <pichincha-input full-width=true placeholder="Hola"></pichincha-input> -->
+    <!-- <pichincha-button (click)= "sendLogin(formLogin.value)" size="large" id="idButton" color="primary">
+        Iniciar Sesión
+      </pichincha-button> -->
+      
