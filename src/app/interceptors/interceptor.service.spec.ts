@@ -45,18 +45,20 @@ describe('InterceptorService', () => {
   });
 
 
-  it('Add Headers', () => {
-    const URL = 'http://localhost:8000/product';
-    const HEADERS = 'AUTHOR_ID';
+  it('shared verify access_token', () => {
+    const URL = environment.api;
+    const access_token = sessionStorage.getItem('access_token');
+    const HEADERS = {
+      Authorization: `Bearer ${access_token}`,
+    };
 
     httpClient.get(URL).subscribe();
 
     let req = httpTestingController.expectOne(URL);
     let request = req.request.headers;
 
-    expect(request.has(HEADERS)).toBeTruthy();
-    expect(request.get(HEADERS)).toBe('0');
-
+    expect(request.has('Authorization')).toEqual(true);
+    expect(request.get('Authorization')).toBe("Bearer null");
     httpTestingController.verify();
   });
 });

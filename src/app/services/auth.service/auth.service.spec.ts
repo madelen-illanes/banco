@@ -12,14 +12,14 @@ describe('AuthService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [   
-        HttpClientTestingModule       
+      imports: [
+        HttpClientTestingModule
       ],
     });
     httpMock = TestBed.inject(HttpTestingController );
     service = TestBed.inject(AuthService);
   });
-  
+
   afterEach(() =>{
     httpMock.verify();
   })
@@ -29,10 +29,10 @@ describe('AuthService', () => {
   });
 
 
-  it('should retur login user', () => {   
+  it('should retur login user', (done) => {
     const mockBody ={
       username: '',
-      password:'',  
+      password:'',
     }
     const mockResponse = {
       user: {
@@ -40,15 +40,19 @@ describe('AuthService', () => {
         username: "ksuarez"
             },
       access_token: "eyJhbG",
-      tokenType: "Bearer" 
+      tokenType: "Bearer"
     }
-   
+
     service.sendCredentials(mockBody)
-    .subscribe()
+    .subscribe((resp) => {
+      expect(resp).toEqual(mockResponse)
+      done()
+
+    })
     let url = URL + '/users/login'
     let req = httpMock.expectOne(url)
     let request = req.request
-    
+
     expect(request.method).toBe('POST')
     req.flush(mockResponse)
   })

@@ -71,20 +71,29 @@ export class LoginPageComponent implements OnInit {
     }
 
     this.authService.sendCredentials(this.loginuser)
-      .subscribe({
-        next: (res: { access_token: string; userId: string; username: string;
-          user: { userId: string | null; username: string | null; }; }) => {
-          console.log('recibiendo la respuesta', res)
-          sessionStorage.setItem('access_token', res.access_token)
-          sessionStorage.setItem('userId', res.userId)
-          sessionStorage.setItem('username', res.username)
-          this.authService.user = res.user;
-          this.router.navigate(['/public'])
-        },
-        error: (error: { message: undefined; }) => {
-          this.messageError = error.message
-        }
-      })
+      .subscribe(resp =>{
+        sessionStorage.setItem('access_token', resp.access_token);
+        sessionStorage.setItem('tokenType', resp.tokenType);
+        sessionStorage.setItem('userId', resp.user.userId)
+        sessionStorage.setItem('username', resp.user.username)
+        this.authService.user = resp.user;
+        this.router.navigateByUrl('/public')
+        console.log('resp', resp);
+      });
+      // .subscribe({
+      //   next: (res: { access_token: string; userId: string; username: string;
+      //     user: { userId: string | null; username: string | null; }; }) => {
+      //     console.log('recibiendo la respuesta', res)
+      //     sessionStorage.setItem('access_token', res.access_token)
+      //     sessionStorage.setItem('userId', res.userId)
+      //     sessionStorage.setItem('username', res.username)
+      //     this.authService.user = res.user;
+      //     this.router.navigateByUrl('/public')
+      //   },
+      //   error: (error: { message: undefined; }) => {
+      //     this.messageError = error.message
+      //   }
+      // })
   }
 
 

@@ -1,6 +1,5 @@
 import { HttpClientTestingModule} from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { LoginPageComponent } from './login-page.component';
 import { AuthService } from '../../../../services/auth.service/auth.service';
@@ -8,7 +7,7 @@ import { InputValueAcessorDirective } from '../../../../shared/directives/input-
 import { of } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoginUser } from '../../../../core/login.interface';
+
 
 
 
@@ -102,19 +101,6 @@ component.formLogin.patchValue (
     expect(component.messageError).toEqual(undefined);
   });
 
-  // it('should request login form invalid', () => {
-  //   jest.spyOn(component.formLogin, 'markAllAsTouched');
-  //   component.formLogin.patchValue({
-  //     username: 'ksuarez',
-  //     password: 'adm12345'
-  //   });
-  //   jest.spyOn(authService, 'sendCredentials').mockImplementation(() => of({exists: true}));
-  //   component.sendLogin({
-  //     username: 'ksuarez',
-  //     password: 'adm12345',
-  //   });
-  //   expect(component.messageError).not.toEqual(undefined);
-  // });
 });
 
 

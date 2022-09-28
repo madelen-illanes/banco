@@ -26,7 +26,7 @@ export class PublicLibraryComponent implements OnInit {
     private categoryService:CategoryService,
     private booksService: BooksService,
 
-  ) { 
+  ) {
     this.categories$ = this.categoryService.getCategories()
     this.books$ = this.booksService. getBooksOwner()
   }
@@ -42,7 +42,7 @@ export class PublicLibraryComponent implements OnInit {
    this.destroy$.next(false)
    this.destroy$.unsubscribe()
   }
- 
+
 
   getBooks() {
     this.booksService.getBooksOwner()
@@ -50,8 +50,8 @@ export class PublicLibraryComponent implements OnInit {
         this.books = books;
       })
     }
-   
-    getcharactersbysearch(){
+
+    getcharactersbysearch() {
       this.search.valueChanges
         .pipe(
           debounceTime(500),
@@ -72,18 +72,17 @@ export class PublicLibraryComponent implements OnInit {
           }
         })
       }
-       
-    
-     
+
       clickCheckBox(event: CustomEvent) {
         if(event.detail.checked){
           this.selectedCategories.push(event.detail.value);
           this.getcharactersbysearch();
           return;
+
         }
         this.selectedCategories = this.selectedCategories.filter(category => category != event.detail.value);
         this.getcharactersbysearch();
         console.log(this.clickCheckBox)
       }
-       
 }
+

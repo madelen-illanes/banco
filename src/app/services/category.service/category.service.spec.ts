@@ -20,7 +20,7 @@ describe('CategoryService', () => {
     service = TestBed.inject(CategoryService);
   });
 
-  it('should bring the get method', () => {
+  it('should bring the get method', (done) => {
     const mockCategory: Category []= [
       {
         id: 1,
@@ -37,7 +37,8 @@ describe('CategoryService', () => {
     ];
     service.getCategories().subscribe(res => {
       expect(res.length).toBe(3);
-      expect(res).toEqual(mockCategory);
+      expect(res).toEqual(mockCategory)
+      done();
     });
 
     let url = URL + '/category'

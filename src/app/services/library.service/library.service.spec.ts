@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 
 import { LibraryService } from './library.service';
 import { RegisterModel } from '../../core/models/register.model';
+import {RegisterPageComponent} from "../../modules/register/pages/register-page/register-page.component";
 
 describe('LibraryService', () => {
   let service: LibraryService;
@@ -31,6 +32,7 @@ describe('LibraryService', () => {
     expect(service).toBeTruthy();
   });
 
+
   it('should request UsernameExist', () => {
     const mockResponse: ExistsUserResponse =
     {
@@ -46,7 +48,7 @@ describe('LibraryService', () => {
     req.flush(mockResponse);
   });
 
-  
+
   it('should request user creation on createUser', () => {
     const mockUser: RegisterModel =
     {

@@ -1,14 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import {
-    ActivatedRouteSnapshot,
-    Router,
-    RouterStateSnapshot, 
-} from '@angular/router';
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot,} from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '../../services/auth.service/auth.service';
 import { SessionGuard } from './session.guard';
 
-function fakeRouter(url: string): RouterStateSnapshot {
+function mockRouter(url: string): RouterStateSnapshot {
     return {
       url,
     } as RouterStateSnapshot;
@@ -20,9 +16,9 @@ describe('SessionGuard', () => {
   let router: Router;
 
   let mockLoginService = {
-    isLogged: true,
+    isLogin: true,
     login: jest.fn(),
-    
+
   };
   let route = {} as ActivatedRouteSnapshot;
 
@@ -31,8 +27,7 @@ describe('SessionGuard', () => {
       imports: [RouterTestingModule],
       providers: [
         {
-          provide: AuthService,
-          useValue: mockLoginService,
+          provide: AuthService, useValue: mockLoginService,
         },
       ],
     });
@@ -44,41 +39,23 @@ describe('SessionGuard', () => {
     expect(guard).toBeTruthy();
   });
 
-//     describe('User Authenticated', () => {
-//     beforeEach(() => {
-//       mockLoginService.isLogged = true;
-//     }); 
-
-//     // it('Method canActivate returns true', () => {
-//     //     let mockUrl = '/auth/login';
-//     //     let canActivate = guard.canActivate(route, fakeRouter(mockUrl));
-//     //     expect(canActivate).toBeTruthy();
-//     //   });
-//      });
 
     describe('User Not Authenticated', () => {
         beforeEach(() => {
-          mockLoginService.isLogged = false;
+          mockLoginService. isLogin = false;
         });
-    
-        it('calling the navigate method and canActivate returns false', () => {
-          let mockUrl = '/admin/dashboard';
+
+        it('shared  canActivate returns false', () => {
+          let mockUrl = '/auth/service';
           let routerNavigate = jest
             .spyOn(router, 'navigate')
             .mockImplementation(() => Promise.resolve(true));
-          let canActivate = guard.canActivate(route, fakeRouter(mockUrl));
-    
+          let canActivate = guard.canActivate(route,  mockRouter(mockUrl));
+
           expect(canActivate).toBeFalsy();
-    
+
           expect(routerNavigate).toBeCalled();
         });
       });
-//   it('should redirect to auth/login if no user data', () => {
-//     expect(guard.canActivate()).toBe(false);
-//   });
 
-//   it('you must navigate if you enter the user data', () => {
-//     jest.spyOn(sessionStorage, 'getItem').mockReturnValue('test');
-//     expect(guard.canActivate()).toBe(true);
-//   });
 });
